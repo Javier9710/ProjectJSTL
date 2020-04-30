@@ -30,7 +30,7 @@ public class MensajeDao {
 			 } catch (Exception e) {
 			 e.printStackTrace();
 			 }finally {
-			// em.close();
+			//em.close();
 			 }
 		
 		 

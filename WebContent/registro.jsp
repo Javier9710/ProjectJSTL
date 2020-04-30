@@ -4,6 +4,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
+
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -14,7 +20,7 @@
 	<form action="MensajeControl" method="post">
 		<div class="form-group row">
 			<div class="col-sm-12">
-				<button type="submit" name="accion" value="atras1"
+				<button type="submit" name="accion" value="atras"
 					class="btn btn-dark">Regresar</button>
 
 			</div>

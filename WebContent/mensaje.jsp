@@ -6,11 +6,19 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
+
 <head>
 <meta charset="ISO-8859-1">
 <title>Lista de mensajes</title>
 </head>
 <body>
+	<h1>Listado de Mensajes</h1>
+	
 	<form action="MensajeControl" method="post">
 		<div class="form-group row">
 			<div class="col-sm-12">
@@ -21,11 +29,11 @@
 		</div>
 
 	</form>
-	<h1>Listado de Mensajes</h1>
+
 	<jsp:useBean id="mD" class="Dao.MensajeDao" scope="request"></jsp:useBean>
 
 
-	<table>
+<table border>
 		<tr>
 			<th>Id</th>
 			<th>Nombre</th>
@@ -46,7 +54,7 @@
 				<td><c:out value="${m.getMensaje()}" /></td>
 				<td>
 					<form action="MensajeControl" method="post">
-					<input type="hidden" name="id" value="${m.getId()}">
+						<input type="hidden" name="id" value="${m.getId()}">
 						<div class="form-group row">
 							<div class="col-sm-12">
 								<button type="submit" name="accion" value="editar"
@@ -56,7 +64,7 @@
 
 							</div>
 						</div>
-						
+
 
 					</form>
 

@@ -50,15 +50,11 @@ public class MensajeControl extends HttpServlet {
 		
 		switch (accion) {
 		case "registrar":
-			String site = new String("http://localhost:8080/ProjectJSTL2.0/registro.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site);
+			request.getRequestDispatcher("registro.jsp").forward(request, response);
 			break;
 		case "listar":
 			MensajeDao mD = new MensajeDao();
-			String site1 = new String("http://localhost:8080/ProjectJSTL2.0/mensaje.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site1);
+			request.getRequestDispatcher("mensaje.jsp").forward(request, response);
 			break;
 
 		case "ingresar":
@@ -74,30 +70,18 @@ public class MensajeControl extends HttpServlet {
 			m.setMensaje(mensaje);
 			m.setUsuario(u);
 			mDao.registrar(m);
-			String site2 = new String("http://localhost:8080/ProjectJSTL2.0/index.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site2);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			break;
 			
 		case "atras":
-			String site3 = new String("http://localhost:8080/ProjectJSTL2.0/index.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site3);
-			break;
-			
-		case "atras1":
-			String site5 = new String("http://localhost:8080/ProjectJSTL2.0/index.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site5);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			break;
 			
 		case "eliminar":
 			String p = request.getParameter("id");
 			int uno = Integer.parseInt(request.getParameter("id"));
 			mDao.eliminar(uno);
-			String site4 = new String("http://localhost:8080/ProjectJSTL2.0/mensaje.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site4);
+			request.getRequestDispatcher("mensaje.jsp").forward(request, response);
 			break;
 			
 		case "editar":
@@ -112,12 +96,11 @@ public class MensajeControl extends HttpServlet {
 			break;
 			
 		case "update":
-
-			String nombre1= request.getParameter("nombre");
-			String email1= request.getParameter("email");
-			String website1= request.getParameter("website");
-			String mensaje1= request.getParameter("mensaje");
-			String usu = request.getParameter("usuario");
+			String nombre1= request.getParameter("nombre1");
+			String email1= request.getParameter("email1");
+			String website1= request.getParameter("website1");
+			String mensaje1= request.getParameter("mensaje1");
+			String usu = request.getParameter("usuario1");
 			u.setUsuario(usu);
 			m.setNombre(nombre1);
 			m.setEmail(email1);
@@ -125,9 +108,7 @@ public class MensajeControl extends HttpServlet {
 			m.setUsuario(u);
 			m.setMensaje(mensaje1);
 			mDao.actualizar(m);
-			String site7 = new String("http://localhost:8080/ProjectJSTL2.0/editar.jsp");
-			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site7);
+			request.getRequestDispatcher("mensaje.jsp").forward(request, response);
 			break;
 			
 		default:
