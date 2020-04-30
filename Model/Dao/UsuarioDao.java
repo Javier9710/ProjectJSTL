@@ -1,7 +1,10 @@
 package Dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
+import Entities.Mensaje;
 import Entities.Usuario;
 import Util.Conexion;
 
@@ -16,6 +19,10 @@ public class UsuarioDao {
 		
 	}
 	
+	public List<Usuario> listar(){
+		return (List<Usuario>) em.createQuery("select x from Usuario x").getResultList();	
+		
+	}
 	
 	
 	 public void registrar (Usuario usuario) {

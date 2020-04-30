@@ -13,6 +13,8 @@
 <body>
 	<h1>Listado de Mensajes</h1>
 	<jsp:useBean id="mD" class="Dao.MensajeDao" scope="request"></jsp:useBean>
+
+	
 	<table>						
 		<tr>
 			<th>Nombre</th>
@@ -25,6 +27,7 @@
 				<td><c:out value="${m.nombre}" /></td>
 				<td><c:out value="${m.email}" /></td>
 				<td><c:out value="${m.usuario.usuario}" /></td>
+				
 			</tr>
 		</c:forEach>
 	</table>

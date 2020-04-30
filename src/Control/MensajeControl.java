@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Dao.MensajeDao;
+import Dao.UsuarioDao;
+import Entities.Mensaje;
+import Entities.Usuario;
 
 /**
  * Servlet implementation class MensajeControl
@@ -32,9 +35,6 @@ public class MensajeControl extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		MensajeDao mD = new MensajeDao();
-		RequestDispatcher rd = request.getRequestDispatcher("mensaje.jsp");
-		rd.forward(request, response);
 		
 	}
 
@@ -43,7 +43,38 @@ public class MensajeControl extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String accion = request.getParameter("accion");	
+		
+		switch (accion) {
+		case "registrar":
+			request.getRequestDispatcher("registro.jsp").forward(request, response);
+			break;
+		case "listar":
+			MensajeDao mD = new MensajeDao();
+			request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+			break;
+
+		case "ingresar":
+			Mensaje m = new Mensaje();
+			Usuario u = new Usuario();
+			MensajeDao mDao = new MensajeDao();
+			String nombre = request.getParameter("nombre");
+			String email = request.getParameter("email");
+			String website = request.getParameter("website");
+			String mensaje = request.getParameter("mensaje");
+			String usuario = request.getParameter("usuario"); 
+			u.setUsuario(usuario);
+			m.setNombre(nombre);
+			m.setEmail(email);
+			m.setWebsite(website);
+			m.setMensaje(mensaje);
+			m.setUsuario(u);
+			mDao.registrar(m);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+			
+		default:
+			break;
+		}
 	}
 
 }

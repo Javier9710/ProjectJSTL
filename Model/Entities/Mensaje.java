@@ -88,8 +88,8 @@ public class Mensaje implements Serializable {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setUsuario(Usuario usuario2) {
+		this.usuario = usuario2;
 	}
 	
 

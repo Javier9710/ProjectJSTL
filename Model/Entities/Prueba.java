@@ -13,17 +13,21 @@ public class Prueba {
 		
 		Usuario u= new Usuario();
 		
-		u.setUsuario("Javier31");
-		u.setClave("123456");
+		u.setUsuario("Gabriela21");
+		//u.setClave("123456");
 		Mensaje m = new Mensaje();
 		m.setNombre("camilo");
 		m.setMensaje("segundo mensaje");
 		m.setEmail("@prueba");
 		m.setWebsite(".com");
 	    m.setUsuario(u);
+	    System.out.println(m);
 		
 		MensajeDao mD = new MensajeDao();
+
 		mD.registrar(m);
+		System.out.println();
+		
 		
 				 }
 		
