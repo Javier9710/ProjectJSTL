@@ -21,6 +21,9 @@ import Entities.Usuario;
 @WebServlet("/MensajeControl")
 public class MensajeControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	Mensaje m = new Mensaje();
+	Usuario u = new Usuario();
+	MensajeDao mDao = new MensajeDao();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -47,17 +50,18 @@ public class MensajeControl extends HttpServlet {
 		
 		switch (accion) {
 		case "registrar":
-			request.getRequestDispatcher("registro.jsp").forward(request, response);
+			String site = new String("http://localhost:8080/ProjectJSTL2.0/registro.jsp");
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", site);
 			break;
 		case "listar":
 			MensajeDao mD = new MensajeDao();
-			request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+			String site1 = new String("http://localhost:8080/ProjectJSTL2.0/mensaje.jsp");
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", site1);
 			break;
 
 		case "ingresar":
-			Mensaje m = new Mensaje();
-			Usuario u = new Usuario();
-			MensajeDao mDao = new MensajeDao();
 			String nombre = request.getParameter("nombre");
 			String email = request.getParameter("email");
 			String website = request.getParameter("website");
@@ -70,7 +74,39 @@ public class MensajeControl extends HttpServlet {
 			m.setMensaje(mensaje);
 			m.setUsuario(u);
 			mDao.registrar(m);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			String site2 = new String("http://localhost:8080/ProjectJSTL2.0/index.jsp");
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", site2);
+			break;
+			
+		case "atras":
+			String site3 = new String("http://localhost:8080/ProjectJSTL2.0/index.jsp");
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", site3);
+			break;
+			
+		case "atras1":
+			String site5 = new String("http://localhost:8080/ProjectJSTL2.0/index.jsp");
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", site5);
+			break;
+			
+		case "eliminar":
+			String p = request.getParameter("id");
+			System.out.println("1---"+p);
+			int uno = Integer.parseInt(request.getParameter("id"));
+			System.out.println("numero---"+uno);
+			mDao.eliminar(uno);
+			String site4 = new String("http://localhost:8080/ProjectJSTL2.0/mensaje.jsp");
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", site4);
+			break;
+			
+		case "editar":
+			String site6 = new String("http://localhost:8080/ProjectJSTL2.0/editar.jsp");
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", site6);
+			break;
 			
 		default:
 			break;

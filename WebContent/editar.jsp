@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-	<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+    pageEncoding="ISO-8859-1"%>
+    	<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -9,19 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Formulario Mensajes</h1>
-	
-	<form action="MensajeControl" method="post">
-		<div class="form-group row">
-			<div class="col-sm-12">
-				<button type="submit" name="accion" value="atras1"
-					class="btn btn-dark">Regresar</button>
-
-			</div>
-		</div>
-
-	</form>
-
+<h1>Editar Mensaje</h1>
 	<form method="post" action="MensajeControl">
 
 		<div class="form-group row">
@@ -78,7 +66,7 @@
 		<div class="form-group row">
 			<div class="col-sm-12">
 				<button type="submit" id="login" name="accion" value="ingresar"
-					class="btn btn-dark">Registrar Mensaje</button>
+					class="btn btn-dark">Editar Mensaje</button>
 
 			</div>
 		</div>
