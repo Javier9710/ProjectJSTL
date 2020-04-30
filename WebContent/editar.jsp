@@ -17,14 +17,14 @@
 				class="col-sm-3 col-form-label">Nombre</label>
 			<div class="col-sm-9">
 				<input type="text" class="form-control" id="usuarioLogin"
-					name="nombre" placeholder="nombre" required="Llena este campo">
+					name="nombre" placeholder="nombre"  required="Llena este campo" value="${mensaje.getNombre()}">
 			</div>
 		</div>
 		<div class="form-group row">
 			<label for="inputPassword3" style="text-align: left;"
 				class="col-sm-3 col-form-label">Email</label>
 			<div class="col-sm-9">
-				<input type="text" class="form-control" id="contraLogin"
+				<input value="${mensaje.getEmail()}" type="text" class="form-control" id="contraLogin"
 					name="email" placeholder="email" required="Llena este campo">
 			</div>
 		</div>
@@ -32,7 +32,7 @@
 			<label for="inputPassword3" style="text-align: left;"
 				class="col-sm-3 col-form-label">WebSite</label>
 			<div class="col-sm-9">
-				<input type="text" class="form-control" id="contraLogin"
+				<input value="${mensaje.getWebsite()}" type="text" class="form-control" id="contraLogin"
 					name="website" placeholder="website" required="Llena este campo">
 			</div>
 			<div>
@@ -60,12 +60,12 @@
 				class="col-sm-3 col-form-label">Mensaje</label>
 			<div class="col-sm-9">
 				<textarea rows="10" cols="40" class="form-control" id="contraLogin"
-					name="mensaje" placeholder="mensaje" required="Llena este campo"></textarea>
+					name="mensaje" placeholder="mensaje" required="Llena este campo">${mensaje.getMensaje()}</textarea>
 			</div>
 		</div>
 		<div class="form-group row">
 			<div class="col-sm-12">
-				<button type="submit" id="login" name="accion" value="ingresar"
+				<button type="submit"  name="accion" value="update"
 					class="btn btn-dark">Editar Mensaje</button>
 
 			</div>

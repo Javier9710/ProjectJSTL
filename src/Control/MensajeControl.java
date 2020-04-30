@@ -93,9 +93,7 @@ public class MensajeControl extends HttpServlet {
 			
 		case "eliminar":
 			String p = request.getParameter("id");
-			System.out.println("1---"+p);
 			int uno = Integer.parseInt(request.getParameter("id"));
-			System.out.println("numero---"+uno);
 			mDao.eliminar(uno);
 			String site4 = new String("http://localhost:8080/ProjectJSTL2.0/mensaje.jsp");
 			response.setStatus(response.SC_MOVED_TEMPORARILY);
@@ -103,9 +101,33 @@ public class MensajeControl extends HttpServlet {
 			break;
 			
 		case "editar":
-			String site6 = new String("http://localhost:8080/ProjectJSTL2.0/editar.jsp");
+			//String x = request.getParameter("id");
+			int dos = Integer.parseInt(request.getParameter("id"));
+			m = mDao.buscar(dos);
+			request.setAttribute("mensaje", m);
+			System.out.println(m.getNombre());
+			System.out.println(m.getEmail());
+			System.out.println(m.getId());
+			request.getRequestDispatcher("editar.jsp").forward(request, response);
+			break;
+			
+		case "update":
+
+			String nombre1= request.getParameter("nombre");
+			String email1= request.getParameter("email");
+			String website1= request.getParameter("website");
+			String mensaje1= request.getParameter("mensaje");
+			String usu = request.getParameter("usuario");
+			u.setUsuario(usu);
+			m.setNombre(nombre1);
+			m.setEmail(email1);
+			m.setWebsite(website1);
+			m.setUsuario(u);
+			m.setMensaje(mensaje1);
+			mDao.actualizar(m);
+			String site7 = new String("http://localhost:8080/ProjectJSTL2.0/editar.jsp");
 			response.setStatus(response.SC_MOVED_TEMPORARILY);
-			response.setHeader("Location", site6);
+			response.setHeader("Location", site7);
 			break;
 			
 		default:

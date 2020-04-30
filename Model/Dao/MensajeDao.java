@@ -45,7 +45,7 @@ public class MensajeDao {
 			 } catch (Exception e) {
 			 e.printStackTrace();
 			 }finally {
-			 em.close();
+			 //em.close();
 			 }
 		
 		 
@@ -69,17 +69,19 @@ public class MensajeDao {
 		 
 	 }
 	 
-	 public void buscar (Integer m1) {
+	 public Mensaje buscar (Integer m1) {
+		 Mensaje m=null;
 		 try {
 			 em.getTransaction().begin();
-			 Mensaje m = em.find(Mensaje.class, m1);
+			 m = em.find(Mensaje.class, m1);
 			 em.getTransaction().commit();
-			 System.out.println(m.getId());	
+			 return m;
 			  
 			 } catch (Exception e) {
 			 e.printStackTrace();
+			 return m;
 			 }finally {
-			 em.close();
+			 //em.close();
 			 }
 		
 		 
